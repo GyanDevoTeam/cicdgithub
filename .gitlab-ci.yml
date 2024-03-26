@@ -31,7 +31,6 @@ build-job:       # This job runs in the build stage, which runs first.
 
 deploy-job:      # This job runs in the deploy stage.
   stage: deploy
-    environment: production
   script:
     - "cp /home/gyan/Documents/pipelines/builds/fWfzb8-9z/0/coolkids3/pipelines/target/petclinic.war /usr/share/tomcat/webapps"
     - echo "Application successfully deployed."
