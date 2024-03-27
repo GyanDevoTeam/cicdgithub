@@ -19,7 +19,7 @@
 
 stages:          # List of stages for jobs, and their order of execution
   - build
-  - deploy
+#  - deploy
 
 build-job:       # This job runs in the build stage, which runs first.
   stage: build
@@ -28,10 +28,3 @@ build-job:       # This job runs in the build stage, which runs first.
   artifacts:
     paths:
       - target/*.war
-
-deploy-job:      # This job runs in the deploy stage.
-  stage: deploy
-  script:
-    - "whoami"
-#    - "cp /home/gyan/Documents/pipelines/builds/fWfzb8-9z/0/coolkids3/pipelines/target/petclinic.war /usr/share/tomcat/webapps"
-    - echo "Application successfully deployed."
