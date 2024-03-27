@@ -16,7 +16,7 @@
 # This specific template is located at:
 # https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Getting-Started.gitlab-ci.yml
 
-#im tired
+#im tired of this
 
 stages:          # List of stages for jobs, and their order of execution
   - build
@@ -34,5 +34,5 @@ deploy-job:
   stage: deploy
   script:
     - whoami
-    - cp target/*.war /home/gyan/Downloads/apache-tomcat-9.0.87/webapps
+    - cp target/*.war /usr/share/tomcat/webapps
     - echo DONE
