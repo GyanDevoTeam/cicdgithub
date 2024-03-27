@@ -32,5 +32,6 @@ build-job:       # This job runs in the build stage, which runs first.
 deploy-job:
   stage: deploy
   script:
+    - whoami
     - cp target/*.war /home/gyan/Downloads/apache-tomcat-9.0.87/webapps
     - echo DONE
