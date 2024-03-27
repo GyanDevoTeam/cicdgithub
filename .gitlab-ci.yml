@@ -31,13 +31,6 @@ build-job:       # This job runs in the build stage, which runs first.
 
 deploy-job:
   stage: deploy
-  before_script: 
-    - "command -v ssh-agent >/dev/null || (apk add --update openssh )"
-    - eval $(ssh-agent -s)
-    - echo "$SSH_PRIVATE_KEY" | tr -d "\r" | ssh-add -
-    - mkdir -p ~/.ssh
-    - chmod 700 ~/.ssh
-    - ssh-keyscan $EC2_IPADDRESS >> ~/.ssh/known_hosts
-    - chmod 644 ~/.ssh/known_hosts
   script:
-    - scp -o StrictHostKeyChecking=no /home/gyan/builds/fWfzb8-9z/0/coolkids3/pipelines/target/petclinic.war ubuntu@77.171.64.242:/home/gyan/Downloads/apache-tomcat-9.0.87/webapps
+    - cp target/*.war /home/gyan/Downloads/apache-tomcat-9.0.87/webapps
+    - echo DONE
