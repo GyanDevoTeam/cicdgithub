@@ -11,12 +11,6 @@ jobs:
 
       - name: build
         run: mvn -B package --file pom.xml
-
-      - name: upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: warfile
-          path: target/*.war
   
   deploy:
     runs-on: self-hosted
