@@ -29,5 +29,5 @@ jobs:
 
       - name: deploy
         run: |
-          cp home/gyan/Downloads/actions-runner/_work/cicdgithub/cicdgithub/target/petclinic.war /usr/share/tomcat/webapps
+          cp ${{ github.workspace }}/target/*.war /usr/share/tomcat/webapps
         working-directory: ${{ github.workspace }}
