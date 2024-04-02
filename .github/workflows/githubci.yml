@@ -1,0 +1,32 @@
+name: PipelineTest
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+
+      - name: build
+        run: mvn -B package --file pom.xml
+
+      - name: upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: warfile
+          path: target/*.war
+  
+  deploy:
+    runs-on: self-hosted
+    needs: build
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+
+      - name: deploy
+        run: |
+          whoami
+          cp target/*.war /usr/share/tomcat/webapps
+          echo DONE
