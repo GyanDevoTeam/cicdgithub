@@ -25,6 +25,7 @@ jobs:
           pwd
           ls
           whoami
+          echo ${{ github.workspace }}
 
       - name: deploy
         run: |
