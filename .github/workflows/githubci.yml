@@ -31,5 +31,5 @@ jobs:
         run: |
           pwd
           echo ${{ github.workspace }}
-          cp ${{ github.workspace }}/target/*.war /usr/share/tomcat/webapps
+          cp ${{ github.workspace }}/target/petclinic.war /usr/share/tomcat/webapps
         working-directory: ${{ github.workspace }}
