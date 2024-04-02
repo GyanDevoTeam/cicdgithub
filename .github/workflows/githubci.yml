@@ -11,6 +11,7 @@ jobs:
 
       - name: build
         run: mvn -B package --file pom.xml
+        working-directory: ${{ github.workspace }}
   
   deploy:
     runs-on: self-hosted
@@ -24,3 +25,4 @@ jobs:
           whoami
           cp target/*.war /usr/share/tomcat/webapps
           echo DONE
+        working-directory: ${{ github.workspace }}
