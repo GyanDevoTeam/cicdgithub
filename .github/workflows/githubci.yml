@@ -23,6 +23,6 @@ jobs:
       - name: deploy
         run: |
           whoami
-          cp target/*.war /usr/share/tomcat/webapps
+          cp ./target/*.war /usr/share/tomcat/webapps
           echo DONE
         working-directory: ${{ github.workspace }}
