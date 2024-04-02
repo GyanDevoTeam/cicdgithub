@@ -22,7 +22,7 @@ jobs:
 
       - name: debug
         run: |
-          ls ./target
+          ls
           whoami
 
       - name: deploy
