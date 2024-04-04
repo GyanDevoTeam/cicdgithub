@@ -27,11 +27,12 @@ jobs:
       with:
         test-plan-path: ./FirstJmeter.jmx
         args: ""
+        
     - name: Upload Results
       uses: actions/upload-artifact@v3
       with:
         name: jmeter-results
-        path: result.jtl
+        path: ./result.jtl
         if-no-files-found: error
   
   deploy:
