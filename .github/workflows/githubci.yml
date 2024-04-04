@@ -23,8 +23,9 @@ jobs:
     runs-on: self-hosted
     steps:
     - name: commands
-      run: ls
+      run: |
         pwd
+        ls
     - name: JMeter Test
       uses: QAInsights/PerfAction@v5.6.2
       with:
