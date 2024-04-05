@@ -21,6 +21,7 @@ jobs:
   
   test:
     runs-on: self-hosted
+    needs: build
     steps:    
     - name: commands
       run: |
@@ -31,7 +32,7 @@ jobs:
     - name: JMeter Test
       uses: QAInsights/PerfAction@v5.6.2
       with:
-        test-plan-path: ./jmetertest/FirstJmeter.jmx
+        test-plan-path: jmetertest/FirstJmeter.jmx
         args: ""
         
     - name: Upload Results
@@ -43,7 +44,7 @@ jobs:
   
   deploy:
     runs-on: self-hosted
-    needs: build
+    needs: test
     steps:
       - name: checkout code
         uses: actions/checkout@v4
