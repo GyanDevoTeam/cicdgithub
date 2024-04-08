@@ -26,13 +26,13 @@ jobs:
     - name: JMeter Test run
       run: |
         pwd
-        /apache-jmeter-5.6.3/bin/jmeter -n -t /jmetertest/FirstJMeter.jmx -l result.jtl
+        /home/gyan/Downloads/apache-jmeter-5.6.3/bin/jmeter -n -t /home/gyan/Documents/cicdgithub/jmetertest/FirstJMeter.jmx -l result.jtl
      
     - name: Upload Results
       uses: actions/upload-artifact@v4
       with:
         name: jmeter-results
-        path: result.jtl
+        path: jmetertest/*.jtl
         if-no-files-found: error
   
   deploy:
