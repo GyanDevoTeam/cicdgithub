@@ -24,7 +24,9 @@ jobs:
     needs: build
     steps:    
     - name: JMeter Test run
-      run: ./apache-jmeter-5.6.3/bin/jmeter -n -t ./jmetertest/FirstJMeter.jmx -l result.jtl
+      run: |
+        pwd
+        ./apache-jmeter-5.6.3/bin/jmeter -n -t ./jmetertest/FirstJMeter.jmx -l result.jtl
      
     - name: Upload Results
       uses: actions/upload-artifact@v4
