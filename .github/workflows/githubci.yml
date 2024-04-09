@@ -18,25 +18,21 @@ jobs:
         with:
           name: petclinic
           path: target/*.war
-  test_2:
-    runs-on: self-hosted
-    needs: test
-    steps:    
-    - name: Selenium Test run
-      run: |
-        ls
-        cd tests
-        pwd
-        python3 test_websitebasic.py
-  
-  test:
+  test_1:
     runs-on: self-hosted
     needs: build
     steps:    
-    - name: JMeter Test run
+    - name: Selenium Test run
       run: |
-        pwd
-        /home/gyan/Downloads/apache-jmeter-5.6.3/bin/jmeter -n -t /home/gyan/Documents/cicdgithub/tests/FirstJMeter.jmx -l /home/gyan/Documents/cicdgithub/tests/result.jtl
+        cd tests
+        python3 test_websitebasic.py
+  
+  test_2:
+    runs-on: self-hosted
+    needs: test_1
+    steps:    
+    - name: JMeter Test run
+      run: /home/gyan/Downloads/apache-jmeter-5.6.3/bin/jmeter -n -t /home/gyan/Documents/cicdgithub/tests/FirstJMeter.jmx -l /home/gyan/Documents/cicdgithub/tests/result.jtl
      
     - name: Upload Results
       uses: actions/upload-artifact@v4
@@ -60,7 +56,5 @@ jobs:
           path: /tmp
 
       - name: deploy
-        run: |
-          pwd
-          cp /tmp/petclinic.war /usr/share/tomcat/webapps
+        run: cp /tmp/petclinic.war /usr/share/tomcat/webapps
         working-directory: ${{ github.workspace }}
