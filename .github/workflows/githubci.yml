@@ -35,6 +35,15 @@ jobs:
         path: /home/gyan/Documents/cicdgithub/jmetertest/*.jtl
         if-no-files-found: error
   
+  test_2:
+    runs-on: self-hosted
+    needs: test
+    steps:    
+    - name: Selenium Test run
+      run: |
+        pwd
+        python3 /home/gyan/Downloads/test_websitebasic.py
+  
   deploy:
     runs-on: self-hosted
     needs: test
