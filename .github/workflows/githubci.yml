@@ -42,7 +42,7 @@ jobs:
     - name: Selenium Test run
       run: |
         pwd
-        python3 /home/gyan/Downloads/test_websitebasic.py
+        python3 /tests/test_websitebasic.py
   
   deploy:
     runs-on: self-hosted
