@@ -25,7 +25,7 @@ jobs:
     - name: Selenium Test run
       run: |
         cd tests
-        pytest test_websitebasic.py --browser=chrome --html=seleniumreport.html
+        pytest test_websitebasic.py --html=seleniumreport.html
     
     - name: Upload Results
       uses: actions/upload-artifact@v4
