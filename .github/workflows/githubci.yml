@@ -25,7 +25,14 @@ jobs:
     - name: Selenium Test run
       run: |
         cd tests
-        python3 test_websitebasic.py
+        pytest test_websitebasic.py --html=seleniumreport.html
+    
+    - name: Upload Results
+      uses: actions/upload-artifact@v4
+      with:
+        name: selenium-results
+        path: /home/gyan/Documents/cicdgithub/tests/*.html
+        if-no-files-found: error
   
   test_2:
     runs-on: self-hosted
