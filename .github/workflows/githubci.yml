@@ -22,7 +22,7 @@ jobs:
     runs-on: self-hosted
     needs: build
     steps:    
-    - name: Selenium Test run
+    - name: Selenium Test Run
       run: |
         cd tests
         pytest test_websitebasic.py --html=seleniumreport.html
@@ -38,7 +38,7 @@ jobs:
     runs-on: self-hosted
     needs: test_1
     steps:    
-    - name: JMeter Test run
+    - name: JMeter Test Run
       run: /home/gyan/Downloads/apache-jmeter-5.6.3/bin/jmeter -n -t /home/gyan/Documents/cicdgithub/tests/FirstJMeter.jmx -l /home/gyan/Documents/cicdgithub/tests/result.jtl
      
     - name: Upload Results
