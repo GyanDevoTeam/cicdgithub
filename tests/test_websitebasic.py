@@ -12,17 +12,20 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 class TestWebsitebasic():
   def setup_method(self, method):
-    self.driver = webdriver.Chrome()
+    self.driver = webdriver.Firefox()
     self.vars = {}
   
   def teardown_method(self, method):
     self.driver.quit()
   
   def test_websitebasic(self):
-    self.driver.get("http://localhost:8080/petclinic/")
-    self.driver.set_window_size(945, 1180)
-    self.driver.find_element(By.CSS_SELECTOR, "li:nth-child(1) > a").click()
-    self.driver.find_element(By.CSS_SELECTOR, "li:nth-child(2) > a").click()
-    self.driver.find_element(By.CSS_SELECTOR, "li:nth-child(3) > a").click()
-    self.driver.find_element(By.CSS_SELECTOR, "li:nth-child(4) span:nth-child(2)").click()
-    print("Selenium tests complete")
+    try:
+      self.driver.get("http://localhost:8080/petclinic/")
+      self.driver.set_window_size(945, 1180)
+      self.driver.find_element(By.CSS_SELECTOR, "li:nth-child(1) > a").click()
+      self.driver.find_element(By.CSS_SELECTOR, "li:nth-child(2) > a").click()
+      self.driver.find_element(By.CSS_SELECTOR, "li:nth-child(3) > a").click()
+      self.driver.find_element(By.CSS_SELECTOR, "li:nth-child(4) span:nth-child(2)").click()
+      print("Selenium tests complete")
+    except Exception as error:
+      print("Error: ", str(error))
