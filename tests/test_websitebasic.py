@@ -25,4 +25,4 @@ class TestWebsitebasic():
     self.driver.find_element(By.CSS_SELECTOR, "li:nth-child(2) > a").click()
     self.driver.find_element(By.CSS_SELECTOR, "li:nth-child(3) > a").click()
     self.driver.find_element(By.CSS_SELECTOR, "li:nth-child(4) span:nth-child(2)").click()
-  
+    print("Selenium tests complete")
