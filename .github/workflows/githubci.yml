@@ -35,6 +35,9 @@ jobs:
       - name: deploy
         run: cp /tmp/petclinic.war /usr/share/tomcat/webapps
         working-directory: ${{ github.workspace }}
+
+      - name: sleep
+        run: sleep 300s
   
   selenium_test:
     runs-on: self-hosted
